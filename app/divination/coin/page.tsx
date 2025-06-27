@@ -850,7 +850,7 @@ ${shouldUseGuaCi ? '卦辞' : '爻辞'}：${yaoCiInfo}
   return (
     <div className="container py-8 pb-24 relative min-h-screen">
       {showInstructionModal && (
-        <DivinationInstructionModal onClose={() => setShowInstructionModal(false)} />
+        <DivinationInstructionModal onClose={() => setShowInstructionModal(false)} divinationType="coin" />
       )}
       
       {showAd && <AdOverlay />}

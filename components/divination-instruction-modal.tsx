@@ -7,15 +7,24 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 
 interface DivinationInstructionModalProps {
   onClose?: () => void
+  divinationType?: 'coin' | 'number' // 新增：占卜类型
+  isOpen?: boolean // 新增：外部控制开关状态
 }
 
-export function DivinationInstructionModal({ onClose }: DivinationInstructionModalProps) {
-  const [open, setOpen] = useState(true)
+export function DivinationInstructionModal({ onClose, divinationType = 'coin', isOpen }: DivinationInstructionModalProps) {
+  const [open, setOpen] = useState(isOpen !== undefined ? isOpen : true)
+
+  // 当外部isOpen改变时，同步内部状态
+  useEffect(() => {
+    if (isOpen !== undefined) {
+      setOpen(isOpen)
+    }
+  }, [isOpen])
 
   // 处理关闭事件
-  const handleOpenChange = (isOpen: boolean) => {
-    setOpen(isOpen)
-    if (!isOpen && onClose) {
+  const handleOpenChange = (isOpenState: boolean) => {
+    setOpen(isOpenState)
+    if (!isOpenState && onClose) {
       onClose()
     }
   }
@@ -46,11 +55,11 @@ export function DivinationInstructionModal({ onClose }: DivinationInstructionMod
                   <div className="w-full flex flex-col items-center justify-center">
                     <h4 className="font-medium text-center w-full">标准版:</h4>
                     <p className="text-sm bg-amber-50 p-3 rounded-md border border-amber-200 text-center w-full">
-                      "假尔泰筮有常，弟子XXX今以某事（想要占问之事），未知可否。 爰质所疑于神之灵，吉凶、得失、悔吝、忧虞，惟尔有神，尚明告知。"
+                      "假尔泰筮有常，弟子XXX今以某事（想要占问之事），未知可否。 爰质所疑于神之灵，吉凶、得失、悔吝、忧虞，惟尔有神，尚明告知。{divinationType === 'coin' ? '铜钱字为阳，花为阴。' : ''}"
                     </p>
                     <h4 className="font-medium mt-3 text-center w-full">现代版:</h4>
                     <p className="text-sm bg-amber-50 p-3 rounded-md border border-amber-200 text-center w-full">
-                      伏羲文王在上、满天诸神佛菩萨、诸星君罗汉在上；弟子XXX，生于19XX年X月X日X时，居于XX市XX区县XX路XX号XX栋XXX室。现求问：什么什么事的吉凶，请卦神赐卦！
+                      伏羲文王在上、满天诸神佛菩萨、诸星君罗汉在上；弟子XXX，生于19XX年X月X日X时，居于XX市XX区县XX路XX号XX栋XXX室。现求问：什么什么事的吉凶，请卦神赐卦！{divinationType === 'coin' ? '铜钱字为阳，花为阴。' : ''}
                     </p>
                   </div>
                   <p className="text-sm text-muted-foreground italic text-center w-full">

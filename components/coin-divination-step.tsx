@@ -46,7 +46,7 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
 
     // 模拟铜钱动画
     setTimeout(() => {
-      // 生成三枚铜钱的结果 (2=反面/花面=阳, 3=正面/字面=阴)
+      // 生成三枚铜钱的结果 (2=正面/字面=阳, 3=反面/花面=阴)
       const coinResults = [Math.random() > 0.5 ? 3 : 2, Math.random() > 0.5 ? 3 : 2, Math.random() > 0.5 ? 3 : 2]
       setCurrentCoins(coinResults)
 
@@ -56,7 +56,7 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
       let isChanging = false
 
       if (sum === 6) {
-        // 3个花面 = 老阳 (变爻)
+        // 3个字面 = 老阳 (变爻)
         lineValue = 1
         isChanging = true
       } else if (sum === 7) {
@@ -66,7 +66,7 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
         // 2个花面1个字面 = 少阳 (两个花一个字)
         lineValue = 1
       } else {
-        // 3个字面 = 老阴 (变爻)
+        // 3个花面 = 老阴 (变爻)
         lineValue = 0
         isChanging = true
       }
@@ -115,7 +115,7 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
     let isChanging = false
 
     if (sum === 6) {
-      // 3个花面 = 老阳 (变爻)
+      // 3个字面 = 老阳 (变爻)
       lineValue = 1
       isChanging = true
     } else if (sum === 7) {
@@ -125,7 +125,7 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
       // 2个花面1个字面 = 少阳
       lineValue = 1
     } else {
-      // 3个字面 = 老阴 (变爻)
+      // 3个花面 = 老阴 (变爻)
       lineValue = 0
       isChanging = true
     }
@@ -187,9 +187,9 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
     const type = getLineType()
     switch (type) {
       case "老阳":
-        return "三个花面，阳爻变阴"
+        return "三个字面，阳爻变阴"
       case "老阴":
-        return "三个字面，阴爻变阳"
+        return "三个花面，阴爻变阳"
       case "少阳":
         return "两个花面一个字面，稳定阳爻"
       case "少阴":
@@ -239,16 +239,18 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
                   className="relative w-20 h-20 perspective-500"
                   style={{ perspective: "500px" }}
                 >
-                  <div className="w-full h-full relative preserve-3d">
+                  <div className="w-full h-full relative preserve-3d" style={{
+                    transform: !isAnimating && currentCoins[index] === 3 ? "rotateY(180deg)" : "rotateY(0deg)",
+                    transition: "transform 0.6s"
+                  }}>
                     <motion.div
                       className="absolute w-full h-full backface-hidden"
                       style={{
                         backfaceVisibility: "hidden",
-                        transform: !isAnimating && currentCoins[index] === 2 ? "rotateY(180deg)" : "rotateY(0deg)",
-                        transition: "transform 0.6s",
+                        transform: "rotateY(0deg)",
                       }}
                     >
-                      {/* 正面(字面) */}
+                      {/* 正面(字面) - 当值为2时显示 */}
                       <div className="w-full h-full rounded-full overflow-hidden shadow-lg">
                         <Image
                           src="/images/coin-front.png"
@@ -263,8 +265,7 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
                       className="absolute w-full h-full backface-hidden"
                       style={{
                         backfaceVisibility: "hidden",
-                        transform: !isAnimating && currentCoins[index] === 3 ? "rotateY(180deg)" : "rotateY(0deg)",
-                        transition: "transform 0.6s",
+                        transform: "rotateY(180deg)",
                       }}
                     >
                       {/* 反面(花面) */}

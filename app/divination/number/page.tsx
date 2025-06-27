@@ -510,7 +510,7 @@ ${shouldUseGuaCi ? '卦辞' : '爻辞'}：${yaoCiInfo}
   return (
     <div className="container mx-auto p-4 pb-24 flex flex-col items-center min-h-screen">
       <AdOverlay show={showAd} />
-      <DivinationInstructionModal isOpen={showInstructionModal} onClose={() => setShowInstructionModal(false)} />
+      <DivinationInstructionModal isOpen={showInstructionModal} onClose={() => setShowInstructionModal(false)} divinationType="number" />
       
       {/* 固定返回按钮 - 始终显示在左上角 */}
       <div className="flex items-center mb-6 w-full max-w-2xl">

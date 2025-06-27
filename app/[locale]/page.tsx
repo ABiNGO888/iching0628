@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 // import Link from "next/link" // Use Link from navigation.ts instead
 import { useState } from "react" // Import useState

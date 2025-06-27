@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate --schema=./prisma/schema.prisma",
     "setup-test": "npx prisma generate && dotenv -e .env.test -- npx tsx scripts/setup-test-env.ts",
     "test-with-real-ai": "npx tsx scripts/start-test-with-real-ai.ts"
   },

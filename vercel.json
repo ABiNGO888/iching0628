@@ -1,12 +1,15 @@
 {
-  "buildCommand": "prisma generate && next build",
-  "installCommand": "npm install",
+  "framework": "nextjs",
+  "buildCommand": "npx prisma generate && npm run build",
+  "installCommand": "npm ci",
   "env": {
-    "PRISMA_GENERATE_SKIP_AUTOINSTALL": "true"
+    "PRISMA_GENERATE_SKIP_AUTOINSTALL": "false",
+    "SKIP_ENV_VALIDATION": "true"
   },
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30
     }
-  }
+  },
+  "regions": ["hkg1"]
 }

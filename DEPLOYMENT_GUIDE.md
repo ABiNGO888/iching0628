@@ -1,4 +1,12 @@
-# Vercel 部署指南
+# 部署指南
+
+本文档将指导您如何将易经卜卦应用部署到 Vercel。
+
+## 前置要求
+
+1. GitHub 账户
+2. Vercel 账户
+3. PostgreSQL 数据库（推荐使用 Supabase 或 Neon）
 
 ## ✅ 已解决的问题
 
@@ -9,38 +17,68 @@
   - 将 `date-fns` 从 `4.1.0` 降级到 `3.6.0` 以兼容 `react-day-picker@8.10.1`
 - **状态**: ✅ 已解决
 
-### 2. Prisma客户端生成
-- **问题**：构建时未生成Prisma客户端
-- **解决**：在package.json中添加构建前生成步骤
+### 2. Prisma Schema 文件找不到错误
+- **问题**: 部署时出现 "Could not find Prisma Schema that is required for this command" 错误
+- **原因**: Vercel构建过程中Prisma客户端生成时机不正确
+- **解决方案**:
+  - 修改 `vercel.json` 中的 `buildCommand` 为 `npx prisma generate && npm run build`
+  - 简化 `package.json` 中的 `build` 脚本为 `next build`
+  - 保持 `postinstall` 脚本为 `prisma generate`
+  - 添加 `SKIP_ENV_VALIDATION=true` 环境变量
+- **状态**: ✅ 已解决
 
 ### 3. 构建配置优化
 - **问题**：Vercel构建配置不完整
 - **解决**：创建vercel.json配置文件
 
-## 剩余部署问题
+## 部署步骤
 
-### 数据库配置（仍需解决）
-1. **本地环境**：使用SQLite文件数据库
-2. **Vercel环境**：无服务器环境不支持文件系统数据库
-3. **解决方案**：必须迁移到云数据库
+### 1. 准备代码仓库
 
-## 解决方案
+1. 将代码推送到 GitHub 仓库
+2. 确保所有必要文件都已提交
+3. 确认 `vercel.json` 配置正确
 
-### 1. 构建配置已修复
-
-✅ **package.json** - 已添加Prisma生成步骤：
+✅ **package.json** - 已优化构建脚本：
 ```json
 {
   "scripts": {
-    "build": "prisma generate && next build",
+    "build": "next build",
     "postinstall": "prisma generate"
   }
 }
 ```
 
-✅ **vercel.json** - 已创建Vercel配置文件
+✅ **vercel.json** - 已创建Vercel配置文件：
+```json
+{
+  "framework": "nextjs",
+  "buildCommand": "npx prisma generate && npm run build",
+  "installCommand": "npm ci",
+  "env": {
+    "PRISMA_GENERATE_SKIP_AUTOINSTALL": "false",
+    "SKIP_ENV_VALIDATION": "true"
+  }
+}
+```
 
-### 2. 数据库迁移（必需）
+### 2. 创建数据库
+
+推荐使用 Supabase：
+1. 访问 [Supabase](https://supabase.com/)
+2. 创建新项目
+3. 获取数据库连接字符串
+4. 运行 Prisma 迁移：`npx prisma db push`
+
+### 3. 配置 Vercel
+
+1. 登录 [Vercel](https://vercel.com/)
+2. 点击 "New Project"
+3. 导入您的 GitHub 仓库
+4. 配置环境变量（见下方）
+5. 部署
+
+### 4. 数据库迁移（必需）
 
 #### 选项A：Vercel Postgres（推荐）
 1. 在Vercel项目中添加Postgres数据库
@@ -66,27 +104,50 @@ datasource db {
 3. 获取连接字符串
 4. 更新Prisma schema为MySQL
 
-### 3. Vercel环境变量配置
+### 5. 环境变量配置
 
-在Vercel项目设置 → Environment Variables 中添加：
+在 Vercel 项目设置中添加以下环境变量：
 
-```bash
-# 必需变量
-DATABASE_URL=your-production-database-url
-NEXTAUTH_SECRET=your-production-secret
-NEXTAUTH_URL=https://your-domain.vercel.app
-GROK_API_KEY=your-grok-api-key
-
-# 可选变量
-WECHAT_CLIENT_ID=your-wechat-client-id
-WECHAT_CLIENT_SECRET=your-wechat-client-secret
-# ... 其他第三方登录凭证
-
-# 生产模式
-NEXT_PUBLIC_TEST_MODE=false
+**必需变量：**
+```
+DATABASE_URL=postgresql://username:password@host:5432/database
+NEXTAUTH_SECRET=your_32_character_secret_key
+NEXTAUTH_URL=https://your-app.vercel.app
+GROQ_API_KEY=gsk-your-groq-api-key
 ```
 
-### 4. 数据库迁移步骤
+**可选变量：**
+```
+NEXT_PUBLIC_TEST_MODE=false
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+WECHAT_CLIENT_ID=your_wechat_app_id
+WECHAT_CLIENT_SECRET=your_wechat_app_secret
+```
+
+### 6. 构建设置
+
+确保 Vercel 项目设置中：
+- Framework Preset: Next.js
+- Build Command: `npm run build`
+- Install Command: `npm ci`
+- Output Directory: `.next`
+
+## 修复的问题
+
+### Prisma Schema 错误修复
+
+1. **更新了 vercel.json 配置：**
+   - 移除了重复的 `npx prisma generate`
+   - 设置 `PRISMA_GENERATE_SKIP_AUTOINSTALL=false`
+   - 让 package.json 中的 `postinstall` 脚本处理 Prisma 生成
+
+2. **构建流程优化：**
+   - `npm ci` 安装依赖
+   - `postinstall` 脚本自动运行 `prisma generate`
+   - `npm run build` 执行构建（包含 `prisma generate && next build`）
+
+### 数据库迁移步骤
 
 1. **更新Prisma schema**（如果使用PostgreSQL）：
 ```prisma
@@ -106,7 +167,7 @@ npx prisma migrate dev --name init
 npx prisma db push
 ```
 
-### 5. 部署检查清单
+### 部署检查清单
 
 - [ ] 更新Prisma schema数据库提供商
 - [ ] 配置生产数据库连接
@@ -115,16 +176,52 @@ npx prisma db push
 - [ ] 测试API路由
 - [ ] 验证用户认证功能
 
-## 常见问题
+## 故障排除
 
-### Q: 构建时出现"prisma generate"错误
-A: 确保在Vercel项目设置中添加了正确的DATABASE_URL
+### 常见问题
 
-### Q: 数据库连接失败
-A: 检查数据库URL格式和网络访问权限
+1. **Prisma Schema 找不到**
+   - ✅ 已修复：确保 `prisma/schema.prisma` 文件存在
+   - ✅ 已修复：优化了构建命令顺序
 
-### Q: NextAuth认证问题
-A: 确保NEXTAUTH_SECRET和NEXTAUTH_URL正确配置
+2. **构建超时**
+   - 检查依赖项是否过多
+   - 考虑优化构建过程
+   - 使用 `npm ci` 而不是 `npm install`
+
+3. **环境变量未生效**
+   - 确保在 Vercel 项目设置中正确添加
+   - 重新部署项目
+   - 检查变量名拼写
+
+4. **数据库连接失败**
+   - 验证 `DATABASE_URL` 格式正确
+   - 确保数据库允许外部连接
+   - 检查防火墙设置
+
+## 部署后验证
+
+1. 访问部署的应用
+2. 测试登录功能
+3. 测试卜卦功能
+4. 检查数据库连接
+5. 验证 AI 功能正常
+
+## 更新部署
+
+推送代码到 GitHub 主分支会自动触发重新部署。
+
+## 环境变量生成工具
+
+生成 NEXTAUTH_SECRET：
+```bash
+openssl rand -base64 32
+```
+
+或在 Node.js 中：
+```javascript
+require('crypto').randomBytes(32).toString('base64')
+```
 
 ## 监控和调试
 

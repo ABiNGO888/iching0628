@@ -3,13 +3,19 @@
   "buildCommand": "npx prisma generate --schema=./prisma/schema.prisma && npm run build",
   "installCommand": "npm ci",
   "env": {
-    "PRISMA_GENERATE_SKIP_AUTOINSTALL": "false",
-    "SKIP_ENV_VALIDATION": "true"
+    "SKIP_ENV_VALIDATION": "true",
+    "PRISMA_SCHEMA_DISABLE_ADVISORY_LOCK": "1"
   },
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30
     }
   },
-  "regions": ["hkg1"]
+  "regions": ["hkg1"],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/zh-CN"
+    }
+  ]
 }

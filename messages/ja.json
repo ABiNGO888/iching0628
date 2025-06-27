@@ -1,0 +1,112 @@
+{
+  "HomePage": {
+    "title": "周易占いアプリ",
+    "subtitle": "古代の知恵を探求し、内なる答えを求める",
+    "selectMethod": "占い方法を選択",
+    "coinMethod": "金銭卦",
+    "coinDesc": "伝統的な銅銭占い",
+    "numberMethod": "数字卦",
+    "numberDesc": "現代の数字占い",
+
+    "languageLabel": "言語",
+    "copyrightOwner": "著作権 ABINGO.WANG 王盛業",
+    "contactEmail": "協力に関するお問い合わせ: abinwang1@gmail.com",
+    "langSimplified": "簡体字中国語",
+    "langTraditional": "繁体字中国語",
+    "langEnglish": "英語",
+    "langJapanese": "日本語",
+    "langKorean": "韓国語"
+  },
+  "copyright": "© 2024 易経占いアプリ. 全著作権所有.",
+  "languages": {
+    "zh-CN": "簡体中国語",
+    "zh-TW": "繁体中国語",
+    "en": "英語",
+    "ja": "日本語",
+    "ko": "韓国語"
+  },
+  "MembershipPage": {
+    "back": "戻る",
+    "title": "会員サービス",
+    "subtitle": "VIP会員にアップグレードして、より多くの機能とサービスをお楽しみください",
+    "freeUser": {
+      "title": "無料ユーザー",
+      "price": "¥0",
+      "period": "/永久",
+      "description": "基本機能体験",
+      "features": {
+        "dailyUse": "毎日2回無料で占い機能を使用",
+        "basicReading": "基本的な卦象解読",
+        "recentRecords": "最近2回の卦象記録を表示"
+      },
+      "limitations": {
+        "ads": "使用時に5秒間の広告表示",
+        "noHistory": "履歴記録を保存できません",
+        "noAdvanced": "高度な解読機能を使用できません"
+      },
+      "currentPlan": "現在のプラン"
+    },
+    "vipUser": {
+      "recommended": "おすすめ",
+      "title": "VIP会員",
+      "price": "¥8.8",
+      "period": "/月",
+      "description": "完全機能無制限使用",
+      "features": {
+        "unlimited": "占い機能無制限使用",
+        "detailed": "詳細な卦象解読と分析",
+        "history": "すべての履歴記録を保存・表示",
+        "noAds": "広告なし",
+        "advanced": "高度な解読機能",
+        "priority": "新機能の優先取得"
+      },
+      "upgradeNow": "今すぐアップグレード",
+      "otherOptions": "¥99/四半期 または ¥365/年も選択可能"
+    },
+    "faq": {
+      "title": "よくある質問",
+      "howToBecome": {
+        "question": "VIP会員になるには？",
+        "answer": "\"今すぐアップグレード\"ボタンをクリックし、お好みの支払い方法で支払いを完了するとVIP会員になれます。"
+      },
+      "refund": {
+        "question": "会員は返金できますか？",
+        "answer": "会員サービス開始後は返金をサポートしていません。慎重にお選びください。"
+      },
+      "expiry": {
+        "question": "会員期限が切れるとどうなりますか？",
+        "answer": "会員期限が切れると、アカウントは自動的に無料ユーザーに戻ります。履歴記録は保持されますが、すべてを表示することはできません。"
+      }
+    }
+  },
+  "LoginPage": {
+    "title": "ログイン",
+    "description": "お好みのログイン方法を選択してください",
+    "errors": {
+      "mockLoginFailed": "模擬ログインに失敗しました",
+      "loginFailed": "ログインに失敗しました。再試行してください",
+      "invalidCredentials": "メールアドレスまたはパスワードが正しくありません"
+    },
+    "tabs": {
+      "oauth": "サードパーティログイン",
+      "email": "メールログイン"
+    },
+    "oauth": {
+      "wechat": "WeChatでログイン",
+      "alipay": "Alipayでログイン",
+      "qq": "QQでログイン"
+    },
+    "form": {
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "loginButton": "ログイン"
+    },
+    "testMode": {
+      "enabled": "テストモードが有効です",
+      "credentials": "テストアカウント: test@example.com / password123"
+    },
+    "footer": {
+      "noAccount": "アカウントをお持ちでない方は、サードパーティログインで自動的にアカウントが作成されます"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "HomePage": {
+    "title": "周易卜卦应用",
+    "subtitle": "探索古老智慧，寻求内心答案",
+    "selectMethod": "选择卜卦方式",
+    "coinMethod": "金钱卦",
+    "coinDesc": "传统铜钱起卦法",
+    "numberMethod": "数字卦",
+    "numberDesc": "现代数字起卦法",
+
+    "languageLabel": "语言",
+    "copyrightOwner": "版权所有 ABINGO.WANG 王盛业",
+    "contactEmail": "交流合作来信 abinwang1@gmail.com",
+    "langSimplified": "简体中文",
+    "langTraditional": "繁體中文",
+    "langEnglish": "English",
+    "langJapanese": "日本語",
+    "langKorean": "한국어"
+  },
+  "copyright": "© 2024 周易卜卦应用. 保留所有权利.",
+  "languages": {
+    "zh-CN": "简体中文",
+    "zh-TW": "繁体中文",
+    "en": "English",
+    "ja": "日本語",
+    "ko": "한글"
+  },
+  "MembershipPage": {
+    "back": "返回",
+    "title": "会员服务",
+    "subtitle": "升级为VIP会员，享受更多功能和服务",
+    "freeUser": {
+      "title": "免费用户",
+      "price": "¥0",
+      "period": "/永久",
+      "description": "基础功能体验",
+      "features": {
+        "dailyUse": "每日免费使用2次起卦功能",
+        "basicReading": "基础卦象解读",
+        "recentRecords": "查看最近2次卦象记录"
+      },
+      "limitations": {
+        "ads": "使用时显示5秒广告",
+        "noHistory": "无法保存历史记录",
+        "noAdvanced": "无法使用高级解读功能"
+      },
+      "currentPlan": "当前方案"
+    },
+    "vipUser": {
+      "recommended": "推荐",
+      "title": "VIP会员",
+      "price": "¥8.8",
+      "period": "/月",
+      "description": "完整功能无限制使用",
+      "features": {
+        "unlimited": "无限次使用起卦功能",
+        "detailed": "详细卦象解读与分析",
+        "history": "保存并查看所有历史记录",
+        "noAds": "无广告干扰",
+        "advanced": "高级解读功能",
+        "priority": "优先获取新功能"
+      },
+      "upgradeNow": "立即升级",
+      "otherOptions": "也可选择 ¥99/季度 或 ¥365/年"
+    },
+    "faq": {
+      "title": "常见问题",
+      "howToBecome": {
+        "question": "如何成为VIP会员？",
+        "answer": "点击\"立即升级\"按钮，选择您喜欢的支付方式完成支付即可成为VIP会员。"
+      },
+      "refund": {
+        "question": "会员可以退款吗？",
+        "answer": "会员服务开通后不支持退款，请谨慎选择。"
+      },
+      "expiry": {
+        "question": "会员到期后会怎样？",
+        "answer": "会员到期后，您的账户将自动转为免费用户，历史记录将保留但无法查看全部。"
+      }
+    }
+  },
+  "LoginPage": {
+    "title": "登录",
+    "description": "选择您喜欢的登录方式",
+    "errors": {
+      "mockLoginFailed": "模拟登录失败",
+      "loginFailed": "登录失败，请重试",
+      "invalidCredentials": "邮箱或密码错误"
+    },
+    "tabs": {
+      "oauth": "第三方登录",
+      "email": "邮箱登录"
+    },
+    "oauth": {
+      "wechat": "使用微信登录",
+      "alipay": "使用支付宝登录",
+      "qq": "使用QQ登录"
+    },
+    "form": {
+      "email": "邮箱",
+      "password": "密码",
+      "loginButton": "登录"
+    },
+    "testMode": {
+      "enabled": "测试模式已启用",
+      "credentials": "测试账号: test@example.com / password123"
+    },
+    "footer": {
+      "noAccount": "还没有账号？第三方登录将自动为您创建账号"
+    }
+  }
+}

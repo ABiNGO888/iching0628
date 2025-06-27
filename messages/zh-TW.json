@@ -1,0 +1,104 @@
+{
+  "HomePage": {
+    "title": "周易卜卦應用",
+    "subtitle": "探索古老智慧，尋求內心答案",
+    "selectMethod": "選擇卜卦方式",
+    "coinMethod": "金錢卦",
+    "coinDesc": "傳統銅錢起卦法",
+    "numberMethod": "數字卦",
+    "numberDesc": "現代數字起卦法",
+
+    "languageLabel": "語言",
+    "copyrightOwner": "版權所有 ABINGO.WANG 王盛業",
+    "contactEmail": "交流合作來信 abinwang1@gmail.com",
+    "langSimplified": "簡體中文",
+    "langTraditional": "繁體中文",
+    "langEnglish": "英文",
+    "langJapanese": "日文",
+    "langKorean": "韓文"
+  },
+  "MembershipPage": {
+    "back": "返回",
+    "title": "會員服務",
+    "subtitle": "升級為VIP會員，享受更多功能和服務",
+    "freeUser": {
+      "title": "免費用戶",
+      "price": "¥0",
+      "period": "/永久",
+      "description": "基礎功能體驗",
+      "features": {
+        "dailyUse": "每日免費使用2次起卦功能",
+        "basicReading": "基礎卦象解讀",
+        "recentRecords": "查看最近2次卦象記錄"
+      },
+      "limitations": {
+        "ads": "使用時顯示5秒廣告",
+        "noHistory": "無法保存歷史記錄",
+        "noAdvanced": "無法使用高級解讀功能"
+      },
+      "currentPlan": "當前方案"
+    },
+    "vipUser": {
+      "recommended": "推薦",
+      "title": "VIP會員",
+      "price": "¥8.8",
+      "period": "/月",
+      "description": "完整功能無限制使用",
+      "features": {
+        "unlimited": "無限次使用起卦功能",
+        "detailed": "詳細卦象解讀與分析",
+        "history": "保存並查看所有歷史記錄",
+        "noAds": "無廣告干擾",
+        "advanced": "高級解讀功能",
+        "priority": "優先獲取新功能"
+      },
+      "upgradeNow": "立即升級",
+      "otherOptions": "也可選擇 ¥99/季度 或 ¥365/年"
+    },
+    "faq": {
+      "title": "常見問題",
+      "howToBecome": {
+        "question": "如何成為VIP會員？",
+        "answer": "點擊\"立即升級\"按鈕，選擇您喜歡的支付方式完成支付即可成為VIP會員。"
+      },
+      "refund": {
+        "question": "會員可以退款嗎？",
+        "answer": "會員服務開通後不支持退款，請謹慎選擇。"
+      },
+      "expiry": {
+        "question": "會員到期後會怎樣？",
+        "answer": "會員到期後，您的賬戶將自動轉為免費用戶，歷史記錄將保留但無法查看全部。"
+      }
+    }
+  },
+  "LoginPage": {
+    "title": "登入",
+    "description": "選擇您喜歡的登入方式",
+    "errors": {
+      "mockLoginFailed": "模擬登入失敗",
+      "loginFailed": "登入失敗，請重試",
+      "invalidCredentials": "郵箱或密碼錯誤"
+    },
+    "tabs": {
+      "oauth": "第三方登入",
+      "email": "郵箱登入"
+    },
+    "oauth": {
+      "wechat": "使用微信登入",
+      "alipay": "使用支付寶登入",
+      "qq": "使用QQ登入"
+    },
+    "form": {
+      "email": "郵箱",
+      "password": "密碼",
+      "loginButton": "登入"
+    },
+    "testMode": {
+      "enabled": "測試模式已啟用",
+      "credentials": "測試帳號: test@example.com / password123"
+    },
+    "footer": {
+      "noAccount": "還沒有帳號？第三方登入將自動為您創建帳號"
+    }
+  }
+}

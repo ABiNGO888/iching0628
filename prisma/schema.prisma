@@ -1,0 +1,128 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  String    @id @default(cuid())
+  name                String?
+  email               String?   @unique
+  emailVerified       DateTime?
+  image               String?
+  password            String?
+  phone               String?   @unique // 手机号
+  wechatId            String?   @unique // 微信ID
+  alipayId            String?   @unique // 支付宝ID
+  googleId            String?   @unique // 谷歌ID
+  qqId                String?   @unique // QQ ID
+  isDeveloper         Boolean   @default(false) // 是否为开发者
+  role                String    @default("user")
+  subscriptionStatus  String    @default("free") // free, premium
+  subscriptionExpires DateTime?
+  aiCreditsRemaining  Int       @default(0) // 新用户默认0次AI解读机会
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  accounts            Account[]
+  sessions            Session[]
+  divinationHistory   DivinationHistory[]
+  dailyUsage          DailyUsage[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model DivinationHistory {
+  id            String   @id @default(cuid())
+  userId        String
+  type          String   // coin, number
+  hexagram      String   // 本卦
+  resultHexagram String?  // 变卦
+  changingLines String?  // 变爻
+  question      String?  // 问题
+  hexagramName  String?  // 卦名
+  interpretation String? // 解卦内容
+  createdAt     DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Payment {
+  id            String   @id @default(cuid())
+  userId        String
+  amount        Float
+  currency      String   @default("CNY")
+  status        String   // pending, completed, failed
+  type          String   // subscription, ai_credits
+  orderId       String?  // 外部订单ID
+  createdAt     DateTime @default(now())
+}
+
+// 每日使用次数跟踪表
+model DailyUsage {
+  id            String   @id @default(cuid())
+  userId        String?
+  sessionId     String?  // 未登录用户的会话ID
+  date          DateTime @default(now())
+  usageCount    Int      @default(0)
+  ipAddress     String?  // IP地址，用于未登录用户限制
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, date])
+  @@unique([sessionId, date])
+  @@index([ipAddress, date])
+}
+
+// 短信验证码表
+model SmsVerification {
+  id          String   @id @default(cuid())
+  phone       String
+  code        String
+  expires     DateTime
+  verified    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  
+  @@unique([phone, code])
+  @@index([phone, expires])
+}

@@ -1,0 +1,135 @@
+{
+  "HomePage": {
+    "title": "I Ching Divination App",
+    "subtitle": "Explore ancient wisdom, seek inner answers",
+    "selectMethod": "Select Divination Method",
+    "coinMethod": "Coin Method",
+    "coinDesc": "Traditional coin divination",
+    "numberMethod": "Number Method",
+    "numberDesc": "Modern numerical divination",
+
+    "languageLabel": "Language",
+    "copyrightOwner": "Copyright ABINGO.WANG 王盛业",
+    "contactEmail": "Contact for collaboration: abinwang1@gmail.com",
+    "langSimplified": "Simplified Chinese",
+    "langTraditional": "Traditional Chinese",
+    "langEnglish": "English",
+    "langJapanese": "Japanese",
+    "langKorean": "Korean"
+  },
+  "copyright": "© 2024 I Ching Divination App. All rights reserved.",
+  "languages": {
+    "zh-CN": "Simplified Chinese",
+    "zh-TW": "Traditional Chinese",
+    "en": "English",
+    "ja": "Japanese",
+    "ko": "Korean"
+  },
+  "MembershipPage": {
+    "back": "Back",
+    "title": "Membership Service",
+    "subtitle": "Upgrade to VIP membership for more features and services",
+    "freeUser": {
+      "title": "Free User",
+      "price": "$0",
+      "period": "/Forever",
+      "description": "Basic feature experience",
+      "features": {
+        "dailyUse": "2 free divinations per day",
+        "basicReading": "Basic hexagram interpretation",
+        "recentRecords": "View last 2 divination records"
+      },
+      "limitations": {
+        "ads": "5-second ads during use",
+        "noHistory": "Cannot save history records",
+        "noAdvanced": "Cannot use advanced interpretation features"
+      },
+      "currentPlan": "Current Plan"
+    },
+    "vipUser": {
+      "recommended": "Recommended",
+      "title": "VIP Member",
+      "price": "$8.8",
+      "period": "/Month",
+      "description": "Full features with unlimited access",
+      "features": {
+        "unlimited": "Unlimited divination usage",
+        "detailed": "Detailed hexagram analysis",
+        "history": "Save and view all history records",
+        "noAds": "Ad-free experience",
+        "advanced": "Advanced interpretation features",
+        "priority": "Priority access to new features"
+      },
+      "upgradeNow": "Upgrade Now",
+      "otherOptions": "Also available: $99/Quarter or $365/Year"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "howToBecome": {
+        "question": "How to become a VIP member?",
+        "answer": "Click the \"Upgrade Now\" button and complete payment with your preferred payment method to become a VIP member."
+      },
+      "refund": {
+        "question": "Can membership be refunded?",
+        "answer": "Membership services do not support refunds after activation. Please choose carefully."
+      },
+      "expiry": {
+        "question": "What happens when membership expires?",
+        "answer": "After membership expires, your account will automatically revert to free user status. History records will be retained but not fully accessible."
+      }
+    }
+  },
+  "LoginPage": {
+    "title": "Login",
+    "description": "Choose your preferred login method",
+    "errors": {
+      "mockLoginFailed": "Mock login failed",
+      "loginFailed": "Login failed, please try again",
+      "invalidCredentials": "Incorrect email or password"
+    },
+    "tabs": {
+      "oauth": "Third-party Login",
+      "email": "Email Login"
+    },
+    "oauth": {
+      "wechat": "Login with WeChat",
+      "alipay": "Login with Alipay",
+      "qq": "Login with QQ"
+    },
+    "form": {
+      "emailLogin": "Email Login",
+      "smsLogin": "SMS Login",
+      "oauthLogin": "Third-party Login",
+      "email": "Email",
+      "password": "Password",
+      "phone": "Phone Number",
+      "smsCode": "Verification Code",
+      "sendSms": "Send Code",
+      "loginButton": "Login",
+      "smsLoginButton": "Login with SMS",
+      "wechatLogin": "WeChat",
+      "alipayLogin": "Alipay",
+      "qqLogin": "QQ",
+      "googleLogin": "Google"
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "loginFailed": "Login failed, please try again",
+      "phoneRequired": "Phone number is required",
+      "invalidPhone": "Please enter a valid phone number",
+      "smsSendFailed": "Failed to send SMS code",
+      "invalidSmsCode": "Invalid verification code",
+      "developerLoginFailed": "Developer login failed"
+    },
+    "sms": {
+      "sendSuccess": "Verification code sent successfully"
+    },
+    "testMode": {
+      "title": "Test Mode",
+      "description": "You are currently in test mode. OAuth login will use simulated data."
+    },
+    "footer": {
+      "noAccount": "Don't have an account? Third-party login will automatically create one for you"
+    }
+  }
+}

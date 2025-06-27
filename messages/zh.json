@@ -1,0 +1,110 @@
+{
+  "HomePage": {
+    "title": "易经占卜",
+    "subtitle": "古老智慧，现代解读",
+    "description": "通过传统易经占卜获得人生指导，结合AI技术提供深度解析",
+    "startDivination": "开始占卜",
+    "features": {
+      "traditional": {
+        "title": "传统易经",
+        "description": "基于古老的易经智慧"
+      },
+      "ai": {
+        "title": "AI解析",
+        "description": "现代技术深度解读"
+      },
+      "personalized": {
+        "title": "个性化",
+        "description": "针对您的具体情况"
+      }
+    }
+  },
+  "Navigation": {
+    "home": "首页",
+    "divination": "占卜",
+    "history": "历史记录",
+    "membership": "会员",
+    "login": "登录",
+    "logout": "退出登录",
+    "profile": "个人资料"
+  },
+  "Login": {
+    "title": "登录",
+    "subtitle": "选择您的登录方式",
+    "form": {
+      "emailLogin": "邮箱登录",
+      "smsLogin": "短信登录",
+      "oauthLogin": "第三方登录",
+      "email": "邮箱",
+      "password": "密码",
+      "phone": "手机号",
+      "smsCode": "验证码",
+      "sendSms": "发送验证码",
+      "loginButton": "登录",
+      "smsLoginButton": "短信登录",
+      "wechatLogin": "微信",
+      "alipayLogin": "支付宝",
+      "qqLogin": "QQ",
+      "googleLogin": "谷歌"
+    },
+    "errors": {
+      "invalidCredentials": "邮箱或密码错误",
+      "loginFailed": "登录失败，请重试",
+      "phoneRequired": "请输入手机号",
+      "invalidPhone": "请输入有效的手机号",
+      "smsSendFailed": "发送验证码失败",
+      "invalidSmsCode": "验证码错误",
+      "developerLoginFailed": "开发者登录失败"
+    },
+    "sms": {
+      "sendSuccess": "验证码发送成功"
+    },
+    "testMode": {
+      "title": "测试模式",
+      "description": "当前处于测试模式，第三方登录将使用模拟数据"
+    }
+  },
+  "Membership": {
+    "title": "会员服务",
+    "subtitle": "选择适合您的服务套餐",
+    "free": {
+      "title": "免费用户",
+      "price": "免费",
+      "features": [
+        "每日1次AI占卜",
+        "基础卦象解读",
+        "历史记录查看"
+      ],
+      "current": "当前套餐"
+    },
+    "premium": {
+      "title": "高级会员",
+      "price": "¥29.9/月",
+      "features": [
+        "无限次AI占卜",
+        "深度卦象解析",
+        "个性化建议",
+        "专属客服支持",
+        "历史数据导出"
+      ],
+      "upgrade": "立即升级"
+    }
+  },
+  "Common": {
+    "loading": "加载中...",
+    "error": "出错了",
+    "retry": "重试",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "close": "关闭"
+  },
+  "Footer": {
+    "copyright": "© 2024 易经占卜. 保留所有权利.",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "contact": "联系我们"
+  }
+}

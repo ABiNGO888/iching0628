@@ -1,0 +1,112 @@
+{
+  "HomePage": {
+    "title": "주역 점술 앱",
+    "subtitle": "고대의 지혜를 탐구하고 내면의 답을 찾으세요",
+    "selectMethod": "점술 방법 선택",
+    "coinMethod": "금전괘",
+    "coinDesc": "전통 동전 점술",
+    "numberMethod": "숫자괘",
+    "numberDesc": "현대 숫자 점술",
+
+    "languageLabel": "언어",
+    "copyrightOwner": "저작권 ABINGO.WANG 王盛業",
+    "contactEmail": "협력 문의: abinwang1@gmail.com",
+    "langSimplified": "간체 중국어",
+    "langTraditional": "번체 중국어",
+    "langEnglish": "영어",
+    "langJapanese": "일본어",
+    "langKorean": "한국어"
+  },
+  "copyright": "© 2024 주역 점술 앱. 모든 권리 보유.",
+  "languages": {
+    "zh-CN": "간체 중국어",
+    "zh-TW": "번체 중국어",
+    "en": "영어",
+    "ja": "일본어",
+    "ko": "한국어"
+  },
+  "MembershipPage": {
+    "back": "뒤로",
+    "title": "회원 서비스",
+    "subtitle": "VIP 회원으로 업그레이드하여 더 많은 기능과 서비스를 즐기세요",
+    "freeUser": {
+      "title": "무료 사용자",
+      "price": "₩0",
+      "period": "/영구",
+      "description": "기본 기능 체험",
+      "features": {
+        "dailyUse": "매일 2회 무료 점술 기능 사용",
+        "basicReading": "기본 괘상 해석",
+        "recentRecords": "최근 2회 괘상 기록 보기"
+      },
+      "limitations": {
+        "ads": "사용 시 5초 광고 표시",
+        "noHistory": "기록 저장 불가",
+        "noAdvanced": "고급 해석 기능 사용 불가"
+      },
+      "currentPlan": "현재 플랜"
+    },
+    "vipUser": {
+      "recommended": "추천",
+      "title": "VIP 회원",
+      "price": "₩8.8",
+      "period": "/월",
+      "description": "완전한 기능 무제한 사용",
+      "features": {
+        "unlimited": "점술 기능 무제한 사용",
+        "detailed": "상세한 괘상 해석과 분석",
+        "history": "모든 기록 저장 및 보기",
+        "noAds": "광고 없음",
+        "advanced": "고급 해석 기능",
+        "priority": "신기능 우선 제공"
+      },
+      "upgradeNow": "지금 업그레이드",
+      "otherOptions": "₩99/분기 또는 ₩365/년도 선택 가능"
+    },
+    "faq": {
+      "title": "자주 묻는 질문",
+      "howToBecome": {
+        "question": "VIP 회원이 되는 방법은?",
+        "answer": "\"지금 업그레이드\" 버튼을 클릭하고 원하는 결제 방법으로 결제를 완료하면 VIP 회원이 됩니다."
+      },
+      "refund": {
+        "question": "회원 환불이 가능한가요?",
+        "answer": "회원 서비스 개통 후에는 환불을 지원하지 않습니다. 신중하게 선택해 주세요."
+      },
+      "expiry": {
+        "question": "회원 만료 후 어떻게 되나요?",
+        "answer": "회원 만료 후 계정은 자동으로 무료 사용자로 전환됩니다. 기록은 보존되지만 전체를 볼 수 없습니다."
+      }
+    }
+  },
+  "LoginPage": {
+    "title": "로그인",
+    "description": "선호하는 로그인 방법을 선택하세요",
+    "errors": {
+      "mockLoginFailed": "모의 로그인에 실패했습니다",
+      "loginFailed": "로그인에 실패했습니다. 다시 시도해 주세요",
+      "invalidCredentials": "이메일 또는 비밀번호가 올바르지 않습니다"
+    },
+    "tabs": {
+      "oauth": "제3자 로그인",
+      "email": "이메일 로그인"
+    },
+    "oauth": {
+      "wechat": "WeChat으로 로그인",
+      "alipay": "Alipay로 로그인",
+      "qq": "QQ로 로그인"
+    },
+    "form": {
+      "email": "이메일",
+      "password": "비밀번호",
+      "loginButton": "로그인"
+    },
+    "testMode": {
+      "enabled": "테스트 모드가 활성화되었습니다",
+      "credentials": "테스트 계정: test@example.com / password123"
+    },
+    "footer": {
+      "noAccount": "계정이 없으신가요? 제3자 로그인으로 자동으로 계정이 생성됩니다"
+    }
+  }
+}

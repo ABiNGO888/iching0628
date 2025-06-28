@@ -1,0 +1,96 @@
+// 测试环境的Prisma schema文件
+// 使用SQLite代替PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  String    @id @default(cuid())
+  name                String?
+  email               String?   @unique
+  emailVerified       DateTime?
+  image               String?
+  password            String?
+  phone               String?   @unique // 手机号
+  wechatId            String?   @unique // 微信ID
+  alipayId            String?   @unique // 支付宝ID
+  googleId            String?   @unique // 谷歌ID
+  qqId                String?   @unique // QQ ID
+  isDeveloper         Boolean   @default(false) // 是否为开发者
+  role                String    @default("user")
+  subscriptionStatus  String    @default("free") // free, premium
+  subscriptionExpires DateTime?
+  aiCreditsRemaining  Int       @default(0) // 新用户默认0次AI解读机会
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  accounts            Account[]
+  sessions            Session[]
+  divinationHistory   DivinationHistory[]
+  dailyUsage          DailyUsage[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model DivinationHistory {
+  id          String   @id @default(cuid())
+  userId      String
+  hexagram    String   // 卦象
+  question    String?  // 问题
+  method      String   // 方法：coin, number
+  aiResponse  String?  // AI解读
+  imageUrl    String?  // 生成的图片URL
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model DailyUsage {
+  id        String   @id @default(cuid())
+  userId    String
+  date      DateTime @default(now())
+  aiUsage   Int      @default(0) // 当日AI使用次数
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
+}

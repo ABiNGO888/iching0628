@@ -12,9 +12,6 @@ export default createMiddleware({
 });
  
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(zh-CN|zh-TW|en|ja|ko)/:path*', '/((?!api|_next/static|_next/image|favicon.ico).*)'],
-  missing: [
-    { type: 'header', key: 'x-missing', value: 'true' }
-  ]
+  // Match only internationalized pathnames, exclude static files
+  matcher: ['/', '/(zh-CN|zh-TW|en|ja|ko)/:path*', '/((?!api|_next/static|_next/image|favicon.ico|.*\\.).*)']
 };

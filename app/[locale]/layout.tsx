@@ -1,5 +1,5 @@
-import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
 import { ReactNode } from 'react';
 import { Inter } from 'next/font/google'; // Assuming you use Inter font
 import '../globals.css'; // Adjust path if necessary

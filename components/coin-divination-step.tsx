@@ -50,7 +50,9 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
       const coinResults = [Math.random() > 0.5 ? 3 : 2, Math.random() > 0.5 ? 3 : 2, Math.random() > 0.5 ? 3 : 2]
       setCurrentCoins(coinResults)
 
-      // 计算爻的类型
+      // 钱币动画停止后，再进行爻的判定
+      setTimeout(() => {
+        // 计算爻的类型
       const sum = coinResults.reduce((a, b) => a + b, 0)
       let lineValue: number
       let isChanging = false
@@ -89,14 +91,15 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
       const nextStep = step + 1
       setStep(nextStep)
 
-      // 如果已经完成六爻
-      if (nextStep === 6) {
-        // 通知父组件
-        setTimeout(() => {
-          onComplete(newLines, isChanging ? [...changingLines, 5] : changingLines)
-        }, 1000)
-      }
-    }, 1500)
+        // 如果已经完成六爻
+        if (nextStep === 6) {
+          // 通知父组件
+          setTimeout(() => {
+            onComplete(newLines, isChanging ? [...changingLines, 5] : changingLines)
+          }, 500)
+        }
+      }, 300) // 钱币动画停止后延迟300ms进行爻的判定
+    }, 750) // 钱币摇晃动画时间减少一半
   }
 
   // 跳过动画
@@ -230,11 +233,11 @@ export function CoinDivinationStep({ onComplete }: CoinDivinationStepProps) {
                   animate={{
                     y: 0,
                     opacity: 1,
-                    rotateY: isAnimating ? [0, 180, 360, 540, 720, 900, 1080] : 0,
+                    rotateY: isAnimating ? [0, 180, 360, 540, 720, 900, 1080] : (showResult && currentCoins[index] === 3 ? 180 : 0),
                   }}
                   transition={{
                     y: { duration: 0.5, delay: index * 0.1 },
-                    rotateY: { duration: 1.5, delay: 0.2 + index * 0.2 },
+                    rotateY: showResult ? { duration: 0 } : { duration: 0.75, delay: 0.2 + index * 0.2 },
                   }}
                   className="relative w-20 h-20 perspective-500"
                   style={{ perspective: "500px" }}

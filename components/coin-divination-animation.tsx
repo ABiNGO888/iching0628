@@ -71,7 +71,9 @@ export function CoinDivinationAnimation({ onComplete }: CoinDivinationAnimationP
       const coins = [Math.random() > 0.5 ? 3 : 2, Math.random() > 0.5 ? 3 : 2, Math.random() > 0.5 ? 3 : 2]
       setCurrentCoins(coins)
 
-      // 计算爻的类型
+      // 钱币动画停止后，再进行爻的判定
+      setTimeout(() => {
+        // 计算爻的类型
       const sum = coins.reduce((a, b) => a + b, 0)
       let lineValue: number
       let changing = false
@@ -112,16 +114,17 @@ export function CoinDivinationAnimation({ onComplete }: CoinDivinationAnimationP
       setTimeout(() => {
         setShowResult(true)
 
-        // 准备下一爻
-        setTimeout(() => {
-          if (lineIndex === 5) {
-            setAnimationComplete(true)
-          } else {
-            generateLine(lineIndex + 1)
-          }
-        }, 1500)
-      }, 1000)
-    }, 1500)
+          // 准备下一爻
+          setTimeout(() => {
+            if (lineIndex === 5) {
+              setAnimationComplete(true)
+            } else {
+              generateLine(lineIndex + 1)
+            }
+          }, 750)
+        }, 500)
+      }, 300) // 钱币动画停止后延迟300ms进行爻的判定
+    }, 750) // 钱币摇晃动画时间减少一半
   }
 
   // 获取爻类型的符号
@@ -181,11 +184,11 @@ export function CoinDivinationAnimation({ onComplete }: CoinDivinationAnimationP
                   animate={{
                     y: 0,
                     opacity: 1,
-                    rotateY: currentCoins[index] ? [0, 180, 360, 540, 720, 900, 1080] : 0,
+                    rotateY: showResult ? (currentCoins[index] === 3 ? 180 : 0) : (currentCoins[index] ? [0, 180, 360, 540, 720, 900, 1080] : 0),
                   }}
                   transition={{
                     y: { duration: 0.5, delay: index * 0.1 },
-                    rotateY: { duration: 1.5, delay: 0.5 + index * 0.2 },
+                    rotateY: showResult ? { duration: 0 } : { duration: 0.75, delay: 0.5 + index * 0.2 },
                   }}
                   className="relative w-20 h-20"
                 >

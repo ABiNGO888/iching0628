@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "@/components/ui/button"
 
 interface DivinationInstructionModalProps {
   onClose?: () => void
@@ -31,7 +32,7 @@ export function DivinationInstructionModal({ onClose, divinationType = 'coin', i
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden flex flex-col items-center justify-center">
+      <DialogContent className="max-w-3xl max-h-[80vh] overflow-hidden flex flex-col items-center justify-center">
         <DialogHeader className="w-full flex flex-col items-center justify-center">
           <DialogTitle className="text-center text-xl font-bold w-full">占卦前须知</DialogTitle>
           <DialogDescription className="text-center text-sm text-muted-foreground w-full">
@@ -47,7 +48,7 @@ export function DivinationInstructionModal({ onClose, divinationType = 'coin', i
             <TabsTrigger value="about" className="text-center">关于易经</TabsTrigger>
           </TabsList>
 
-          <ScrollArea className="h-[60vh] rounded-md border p-4 flex flex-col items-center justify-center">
+          <ScrollArea className="h-[50vh] rounded-md border p-4 flex flex-col items-center justify-center">
             <TabsContent value="prayer" className="space-y-4 flex flex-col items-center justify-center text-center">
               <div className="w-full flex flex-col items-center justify-center">
                 <h3 className="text-lg font-semibold mb-2 text-center w-full">占卦前默念祝词</h3>
@@ -135,6 +136,16 @@ export function DivinationInstructionModal({ onClose, divinationType = 'coin', i
               </div>
             </TabsContent>
           </ScrollArea>
+          
+          {/* 添加关闭按钮 */}
+          <div className="w-full flex justify-center mt-6 mb-2">
+            <Button 
+              onClick={() => handleOpenChange(false)}
+              className="bg-red-500 hover:bg-red-600 text-white px-10 py-3 rounded-md font-medium text-lg scale-110"
+            >
+              准备好了
+            </Button>
+          </div>
         </Tabs>
       </DialogContent>
     </Dialog>

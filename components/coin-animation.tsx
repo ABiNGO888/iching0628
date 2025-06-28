@@ -23,7 +23,7 @@ export function CoinAnimation({ onComplete }: CoinAnimationProps) {
             return newCoins
           })
           resolve()
-        }, 800) // 每枚硬币翻转间隔
+        }, 400) // 每枚硬币翻转间隔
       })
     }
 
@@ -31,7 +31,7 @@ export function CoinAnimation({ onComplete }: CoinAnimationProps) {
       // 开始动画
       if (animationStep === 0) {
         setAnimationStep(1)
-        setTimeout(() => setAnimationStep(2), 1000)
+        setTimeout(() => setAnimationStep(2), 500)
         return
       }
 
@@ -44,7 +44,7 @@ export function CoinAnimation({ onComplete }: CoinAnimationProps) {
         // 动画完成后，等待一会儿再调用onComplete
         setTimeout(() => {
           onComplete(coins)
-        }, 1000)
+        }, 500)
       }
     }
 
@@ -74,7 +74,7 @@ export function CoinAnimation({ onComplete }: CoinAnimationProps) {
               }}
               transition={{
                 y: { duration: 1, delay: index * 0.2 },
-                rotateY: { duration: 1.5, delay: 1 + index * 0.8 },
+                rotateY: { duration: 0.375, delay: 0.5 + index * 0.4 },
               }}
               className="relative w-16 h-16 rounded-full"
             >

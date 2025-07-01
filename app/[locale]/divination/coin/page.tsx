@@ -562,7 +562,7 @@ ${shouldUseGuaCi ? '卦辞' : '爻辞'}：${yaoCiInfo}
               </svg>
               返回
             </Button>
-            <h1 className="text-2xl font-bold text-center flex-1 pr-16">每日一卦</h1>
+
           </div>
 
           <div className="text-center mb-4">

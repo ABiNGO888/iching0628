@@ -1,9 +1,16 @@
-import Link from "next/link"
+"use client"
+
 import { hexagramData } from "@/components/hexagram-data"
 import { HexagramDisplay } from "@/components/hexagram-display"
 import Link from "next/link"
+import { useTranslations } from 'next-intl'
+import { useParams } from 'next/navigation'
 
 export default function HexagramsPage() {
+  const params = useParams();
+  const locale = params.locale as string;
+  const t = useTranslations('Hexagrams');
+  
   // Convert the hexagram data object to an array and sort by number
   const hexagrams = Object.entries(hexagramData)
     .map(([key, data]) => ({ key, ...data }))
@@ -13,7 +20,7 @@ export default function HexagramsPage() {
     <div className="container pb-20">
       <div className="py-4">
         <div className="relative">
-          <input type="search" placeholder="搜索" className="w-full bg-[#e9e2d5] rounded-lg py-2 px-10 text-gray-700" />
+          <input type="search" placeholder={t('search') || '搜索'} className="w-full bg-[#e9e2d5] rounded-lg py-2 px-10 text-gray-700" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
@@ -37,7 +44,7 @@ export default function HexagramsPage() {
           const lines = hexagram.key.split("").map(Number)
 
           return (
-            <Link href={`/hexagrams/${hexagram.number}`} key={hexagram.key} className="flex items-center py-4 px-2">
+            <Link href={`/${locale}/hexagrams/${hexagram.number}`} key={hexagram.key} className="flex items-center py-4 px-2">
               <div className="w-8 text-center font-medium text-gray-700">{hexagram.number}</div>
               <div className="ml-4">
                 <HexagramDisplay lines={lines} className="scale-75" />

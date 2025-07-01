@@ -94,12 +94,22 @@
     "oauth": {
       "wechat": "使用微信登录",
       "alipay": "使用支付宝登录",
-      "qq": "使用QQ登录"
+      "qq": "使用QQ登录",
+      "google": "使用Google登录"
     },
     "form": {
       "email": "邮箱",
       "password": "密码",
-      "loginButton": "登录"
+      "phone": "手机号",
+      "smsCode": "验证码",
+      "sendSms": "发送验证码",
+      "login": "登录",
+      "emailLogin": "邮箱登录",
+      "smsLogin": "短信登录",
+      "oauthLogin": "第三方登录"
+    },
+    "sms": {
+      "sendSuccess": "验证码发送成功"
     },
     "testMode": {
       "enabled": "测试模式已启用",
@@ -107,6 +117,124 @@
     },
     "footer": {
       "noAccount": "还没有账号？第三方登录将自动为您创建账号"
+    },
+    "errors": {
+      "mockLoginFailed": "模拟登录失败",
+      "loginFailed": "登录失败，请重试",
+      "invalidCredentials": "邮箱或密码错误",
+      "phoneRequired": "请输入手机号",
+      "invalidPhone": "请输入有效的手机号",
+      "smsSendFailed": "验证码发送失败",
+      "developerLoginFailed": "开发者登录失败"
     }
-  }
+  },
+  "ChapterPage": {
+    "back": "返回",
+    "contentNotFound": "内容不存在或正在编辑中"
+  },
+  "Profile": {
+    "title": "个人中心",
+    "loading": "加载中...",
+    "userInfo": {
+      "title": "用户信息",
+      "name": "姓名",
+      "email": "邮箱",
+      "membershipType": "会员类型",
+      "membershipExpiry": "会员到期时间",
+      "free": "免费用户",
+      "vip": "VIP会员",
+      "expired": "已过期"
+    },
+    "aiCredits": {
+      "title": "AI积分",
+      "current": "当前积分",
+      "recharge": "充值",
+      "description": "用于AI绘图功能"
+    },
+    "divinationHistory": {
+      "title": "占卜历史",
+      "noRecords": "暂无占卜记录",
+      "type": "类型",
+      "question": "问题",
+      "result": "结果",
+      "date": "日期",
+      "coinDivination": "金钱卦",
+      "numberDivination": "数字卦"
+    },
+    "actions": {
+      "settings": "设置",
+      "logout": "退出登录"
+    },
+    "recharge": {
+       "success": "充值成功！",
+       "successDescription": "您的AI积分已更新"
+     }
+   },
+   "aiSettings": {
+     "back": "返回",
+     "title": "AI绘图设置",
+     "service": {
+       "title": "AI绘图服务",
+       "description": "连接AI绘图服务以启用卦象AI画像功能",
+       "connectionStatus": "连接状态",
+       "connected": "已连接到{provider}AI服务",
+       "notConnected": "未连接任何AI服务",
+       "connectedBadge": "已连接",
+       "disconnect": "断开连接",
+       "connect": "连接AI服务"
+     },
+     "providers": {
+       "baidu": "百度文心",
+       "aliyun": "阿里通义",
+       "custom": "自定义"
+     },
+     "options": {
+       "title": "AI绘图选项",
+       "description": "自定义AI绘图功能的行为和外观",
+       "autoGenerate": {
+         "title": "自动生成",
+         "description": "卦象结果出现后自动生成AI画像"
+       },
+       "highQuality": {
+         "title": "高质量图像",
+         "description": "生成更高质量的图像（消耗更多API额度）"
+       },
+       "includeHexagram": {
+         "title": "包含卦象",
+         "description": "在生成的图像中包含卦象符号"
+       },
+       "includeText": {
+         "title": "包含卦辞",
+         "description": "在生成的图像中包含卦辞文字"
+       }
+     },
+     "saveSettings": "保存设置",
+     "saveSuccess": {
+       "title": "设置已保存",
+       "description": "您的AI绘图设置已成功保存"
+     }
+   },
+   "HexagramDetail": {
+     "back": "返回",
+     "dailyHexagram": "每日一卦",
+     "notFound": "卦象不存在",
+     "originalHexagram": "本卦",
+     "hexagramName": "卦名",
+     "interpretation": "卦辞解释",
+     "source": "出处",
+     "hexagram": "卦",
+     "lineTexts": "爻辞",
+     "firstLine": "初爻",
+     "firstLineText": "同类相亲，志同道合。",
+     "secondLine": "二爻",
+     "secondLineText": "内外和睦，家族兴旺。",
+     "thirdLine": "三爻",
+     "thirdLineText": "隐伏敌人，谨防背叛。",
+     "fourthLine": "四爻",
+     "fourthLineText": "外结盟友，共同发展。",
+     "fifthLine": "五爻",
+     "fifthLineText": "亲近贤德，获得嘉奖。",
+     "sixthLine": "上爻",
+     "sixthLineText": "远离同伴，孤军奋战。"
+   }
 }

@@ -1,5 +1,5 @@
 import {getRequestConfig} from 'next-intl/server';
- 
+
 // Can be imported from a shared config
 const locales = ['en', 'zh-CN', 'zh-TW', 'ja', 'ko'];
  

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { createLocalizedPathnamesNavigation } from 'next-intl/navigation';
 import { redirect, usePathname, useRouter } from "next/navigation"; // Reverted to next/navigation, removed duplicate Link import
 
 export const locales = ['en', 'zh-CN', 'zh-TW', 'ja', 'ko'] as const;
